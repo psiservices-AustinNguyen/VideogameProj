@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using App.Models;
+using Insight.Database;
+
 
 namespace App.Adapters
 {
+    [DatabaseService(ConnectionStrings.VideogameConnection)]
     public abstract class DBAdapter
     {
-
+        [Sql("Get_DevCompanies", Schema = "dbo")]
+        public abstract Task<IEnumerable<DevCompany>> GetAllDevCompanies();
     }
 }
