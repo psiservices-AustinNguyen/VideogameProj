@@ -4,8 +4,6 @@
     [AttributeUsage(AttributeTargets.Class)]
     public sealed class DatabaseServiceAttribute : Attribute
     {
-        
-
         public DatabaseServiceAttribute(string connectionString)
         {
             ConnectionString = connectionString;
