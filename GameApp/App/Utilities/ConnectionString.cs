@@ -13,6 +13,6 @@
     //In the future if there were other databases to connect to, they would be added here
     public sealed  class ConnectionStrings
     {
-        public const string VideogameConnection = "VideogameDbConnection";
+        public const string Videogame = "VideogameDbConnection";
     }
 }

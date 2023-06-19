@@ -1,8 +1,24 @@
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
+using System.Text.Json.Serialization;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllers(options => {
+    //Generates bearer token used for authorization
+    //var policy = new AuthorizationPolicyBuilder()
+    //    .RequireAuthenticatedUser()
+    //    .Build();
+    //options.Filters.Add(new AuthorizeFilter(policy));
+})
+    .AddJsonOptions(configure => {
+        //configure.JsonSerializerOptions.Converters.Add(new System.Text.Json.Serialization.DateOnlyConverter());
+        //configure.JsonSerializerOptions.Converters.Add(new JsonEmptyStringToNullConverter());
+        //configure.JsonSerializerOptions.Converters.Add(new NullableDateTimeConverter());
+
+    });
 
 var app = builder.Build();
 

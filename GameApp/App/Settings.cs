@@ -1,5 +1,4 @@
-﻿using App.Utilities;
-using Insight.Database;
+﻿using Insight.Database;
 using Microsoft.Extensions.Configuration;
 
 namespace App
@@ -10,7 +9,7 @@ namespace App
         //This is used to set up the sql connection throughout the program
         public Settings(IConfiguration configuration) 
         {
-            DatabaseConnectionString = configuration.GetConnectionString(ConnectionStrings.VideogameConnection);
+            DatabaseConnectionString = configuration.GetConnectionString(ConnectionStrings.Videogame);
         }
         
     }

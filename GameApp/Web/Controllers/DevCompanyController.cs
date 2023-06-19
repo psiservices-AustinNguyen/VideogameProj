@@ -15,7 +15,7 @@ namespace Web.Controllers
         }
 
         //Get all departments
-        [HttpGet]
+        [HttpGet("GetAllDevCo")]
         public async Task<ActionResult<List<DevCompany>>> GetAllDevCompanies([FromServices] GetAllDevCompanies devCompany)
         {
             _logger.LogInformation("Received GET request");
