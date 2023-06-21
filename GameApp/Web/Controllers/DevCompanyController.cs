@@ -1,7 +1,6 @@
 ﻿using App.Models;
 using App.UseCases;
 using Microsoft.AspNetCore.Mvc;
-using System.Reflection;
 
 namespace Web.Controllers
 {
@@ -30,7 +29,7 @@ namespace Web.Controllers
                 _logger.LogError(err.Message);
                 return StatusCode(500, err.Message);
             }
-            
+
         }
 
         //Add a development co
@@ -44,7 +43,7 @@ namespace Web.Controllers
                 await addDevCo.Execute(model);
                 return Ok("Development Company Added!");
             }
-            catch(Exception err)
+            catch (Exception err)
             {
                 _logger.LogError(err.Message);
                 return StatusCode(500, err.Message);
@@ -61,6 +60,24 @@ namespace Web.Controllers
             {
                 await deleteDevCo.Execute(id);
                 return Ok("Development Company Deleted!");
+            }
+            catch (Exception err)
+            {
+                _logger.LogError(err.Message);
+                return StatusCode(500, err.Message);
+            }
+        }
+
+        //Update a development co
+        [HttpPut("update/{id}")]
+        public async Task<IActionResult> UpdateDevCompany([FromServices] UpdateDevCo updateDevCo, [FromBody] DevCompany model, [FromRoute] int id)
+        {
+            _logger.LogInformation("Recieved PUT request");
+
+            try
+            {
+                await updateDevCo.Execute(id, model);
+                return Ok("Development Company Updated!");
             }
             catch (Exception err)
             {
