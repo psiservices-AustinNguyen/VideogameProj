@@ -1,6 +1,7 @@
 ﻿using App.Models;
 using App.UseCases;
 using Microsoft.AspNetCore.Mvc;
+using System.Reflection;
 
 namespace Web.Controllers
 {
@@ -37,12 +38,31 @@ namespace Web.Controllers
         public async Task<IActionResult> AddDevCompany([FromServices] AddDevCo addDevCo, [FromBody] DevCompany model)
         {
             _logger.LogInformation("Recieved POST request");
+
             try
             {
                 await addDevCo.Execute(model);
                 return Ok("Development Company Added!");
             }
             catch(Exception err)
+            {
+                _logger.LogError(err.Message);
+                return StatusCode(500, err.Message);
+            }
+        }
+
+        //Delete a development co
+        [HttpDelete("delete/{id}")]
+        public async Task<IActionResult> DeleteDevCompany([FromServices] DeleteDevCo deleteDevCo, [FromRoute] int id)
+        {
+            _logger.LogInformation("Recieved DELETE request");
+
+            try
+            {
+                await deleteDevCo.Execute(id);
+                return Ok("Development Company Deleted!");
+            }
+            catch (Exception err)
             {
                 _logger.LogError(err.Message);
                 return StatusCode(500, err.Message);

@@ -1,17 +1,8 @@
 using App;
-using App.Adapters;
-using App.UseCases;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc.Authorization;
-using Microsoft.Data.SqlClient;
-using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-//builder.Services.AddScoped<DBAdapter>(); // Register the DBAdapter service
-//builder.Services.AddScoped<GetAllDevCompanies>(); // Register the GetAllDevCompanies use case
-//builder.Services.AddControllers();
 
 
 builder.Services.AddControllers(options =>

@@ -12,5 +12,8 @@ namespace App.Adapters
 
         [Sql("Add_DevCompany", Schema = "dbo")]
         public abstract Task AddDevCo(DevCompany model);
+
+        [Sql("Delete_DevCompany", Schema = "dbo")]
+        public abstract Task DeleteDevCo(int Id);
     }
 }
