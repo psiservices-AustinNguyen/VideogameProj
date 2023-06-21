@@ -7,7 +7,9 @@ BEGIN
     SELECT
         DevCoId,
         DevName,
-        DevAddress
+        DevAddress,
+        FoundedDate,
+        MostPopularGame
     FROM
         DevCompany
     WHERE

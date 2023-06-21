@@ -5,8 +5,10 @@ BEGIN
 	SET NOCOUNT ON;
 
 	SELECT
-		DevName
+		  DevName
 		, DevAddress
+		, FoundedDate
+		, MostPopularGame
 		, DevCoId
 	FROM 
 		DevCompany 
