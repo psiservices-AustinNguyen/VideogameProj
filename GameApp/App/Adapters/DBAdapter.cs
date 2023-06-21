@@ -9,5 +9,8 @@ namespace App.Adapters
     {
         [Sql("Get_DevCompanies", Schema = "dbo")]
         public abstract Task<IEnumerable<DevCompany>> GetAllDevCompanies();
+
+        [Sql("Add_DevCompany", Schema = "dbo")]
+        public abstract Task AddDevCo(DevCompany model);
     }
 }

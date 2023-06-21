@@ -1,5 +1,5 @@
-﻿CREATE PROCEDURE [dbo].[Get_DevCompanies]
+﻿CREATE PROCEDURE dbo.Get_DevCompanies
 AS
 BEGIN
-	SELECT * FROM DevCompany;
+    SELECT * FROM DevCompany;
 END

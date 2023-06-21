@@ -3,6 +3,7 @@ using App.Models;
 
 namespace App.UseCases
 {
+    [TransientService]
     public class GetAllDevCompanies
     {
         private readonly DBAdapter _DBAdapter;
