@@ -1,7 +1,7 @@
 ﻿CREATE PROCEDURE dbo.Delete_DevCompany
-    @Id INT
+    @DevCoId INT
 AS
 BEGIN
     DELETE FROM DevCompany
-    WHERE DevCoId = @Id;
+    WHERE DevCoId = @DevCoId;
 END

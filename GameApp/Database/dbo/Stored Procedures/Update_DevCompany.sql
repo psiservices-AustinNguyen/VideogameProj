@@ -1,13 +1,13 @@
 ﻿CREATE PROCEDURE dbo.Update_DevCompany
-    @Id INT,
-    @Name NVARCHAR(255),
-    @Address NVARCHAR(255)
+    @DevCoId INT,
+    @DevName NVARCHAR(255),
+    @DevAddress NVARCHAR(255)
 AS
 BEGIN
     SET NOCOUNT ON;
 
     UPDATE DevCompany
-    SET DevName = @Name,
-        DevAddress = @Address
-    WHERE DevCoId = @Id;
+    SET DevName = @DevName,
+        DevAddress = @DevAddress
+    WHERE DevCoId = @DevCoId;
 END

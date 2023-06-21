@@ -16,6 +16,6 @@ namespace App.UseCases
         {
             _DBAdapter = dbAdapter;
         }
-        public async Task Execute(int Id, DevCompany model) => await _DBAdapter.UpdateDevCo(Id, model);
+        public async Task Execute(int DevCoId, DevCompany model) => await _DBAdapter.UpdateDevCo(DevCoId, model);
     }
 }

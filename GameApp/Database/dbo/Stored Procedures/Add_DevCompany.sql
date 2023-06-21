@@ -1,8 +1,8 @@
 ﻿CREATE PROCEDURE dbo.Add_DevCompany
-    @Name NVARCHAR(255),
-    @Address NVARCHAR(255)
+    @DevName NVARCHAR(255),
+    @DevAddress NVARCHAR(255)
 AS
 BEGIN
     INSERT INTO DevCompany (DevName, DevAddress)
-    VALUES (@Name, @Address)
+    VALUES (@DevName, @DevAddress)
 END

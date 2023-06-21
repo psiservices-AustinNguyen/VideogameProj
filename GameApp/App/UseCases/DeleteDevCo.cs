@@ -16,6 +16,6 @@ namespace App.UseCases
         {
             _DBAdapter = dbAdapter;
         }
-        public async Task Execute(int Id) => await _DBAdapter.DeleteDevCo(Id);
+        public async Task Execute(int DevCoId) => await _DBAdapter.DeleteDevCo(DevCoId);
     }
 }

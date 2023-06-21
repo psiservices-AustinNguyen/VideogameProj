@@ -29,7 +29,23 @@ namespace Web.Controllers
                 _logger.LogError(err.Message);
                 return StatusCode(500, err.Message);
             }
+        }
 
+        //Get specific Development Company
+        [HttpGet("GetDevCo/{id}")]
+        public async Task<ActionResult<List<DevCompany>>> GetAllDevCompanies([FromServices] GetDevCompany getDevCompany, [FromRoute] int id)
+        {
+            _logger.LogInformation("Received GET request");
+
+            try
+            {
+                return Ok(await getDevCompany.Execute(id));
+            }
+            catch (Exception err)
+            {
+                _logger.LogError(err.Message);
+                return StatusCode(500, err.Message);
+            }
         }
 
         //Add a development co

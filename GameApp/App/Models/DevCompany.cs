@@ -8,8 +8,8 @@ namespace App.Models
 {
     public class DevCompany
     {
-        public int Id { get; set; }
-        public string? Name { get; set; }
-        public string? Address { get; set; }
+        public int DevCoId { get; set; }
+        public string? DevName { get; set; }
+        public string? DevAddress { get; set; }
     }
 }
