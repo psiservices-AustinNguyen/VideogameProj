@@ -4,7 +4,8 @@ using Insight.Database;
 
 namespace App.Adapters
 {
-    [DatabaseService(ConnectionStrings.Videogame)]
+    //[DatabaseService(ConnectionStrings.Videogame)]
+    [DatabaseService("VideogameDbConnection")]
     public abstract class DBAdapter
     {
         [Sql("Get_DevCompanyList", Schema = "dbo")]

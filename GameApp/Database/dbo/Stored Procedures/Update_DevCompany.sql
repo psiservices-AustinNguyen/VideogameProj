@@ -6,6 +6,7 @@
     @MostPopularGame NVARCHAR(255)
 AS
 BEGIN
+
     SET NOCOUNT ON;
 
     UPDATE DevCompany

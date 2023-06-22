@@ -7,7 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 //
 builder.Services.AddControllers();
 
-//
+
+//builder.Configuration = object that holds the configuration settings for the application. It is typically loaded from
+//various configuration sources such as appsettings.json, environment variables, command-line arguments, etc
 var settings = new Settings(builder.Configuration);
 
 //

@@ -7,6 +7,7 @@ namespace Microsoft.Extensions.DependencyInjection
 {
     public static class DiExtensions
     {
+        //Assembly = Artifacts compiled into assembly used in diconfigurations
         public static void RegisterServices(this IServiceCollection services, Assembly assembly, Settings settings)
         {
             var sqlServerFactory = typeof(DbAdapterFactory).GetMethod(nameof(DbAdapterFactory.GetConnectionAs));

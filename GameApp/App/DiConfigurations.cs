@@ -14,7 +14,7 @@ namespace App
     {
         public static void ConfigureServices(IServiceCollection services, Settings settings)
         {
-            //This line checks if the IServiceCollection already contains a service registration for the Settings type.
+            //checks if the IServiceCollection already contains a service registration for the Settings type.
             //If it does, the method returns immediately to avoid registering the services multiple times
             if (services.Any(sd => sd.ServiceType == typeof(Settings))) return; // keeps from loading multiple times
 
