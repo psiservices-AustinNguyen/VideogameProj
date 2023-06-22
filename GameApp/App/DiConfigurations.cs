@@ -1,15 +1,13 @@
 ﻿//This line imports the necessary namespace to access the IServiceCollection interface and related classes for configuring dependency injection
-using Azure.Core;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Win32;
-using System.ComponentModel;
 
 //This line imports the necessary namespace to work with reflection, which allows you to dynamically inspect and manipulate types and assemblies
 using System.Reflection;
 
 namespace App
 {
-    //Sets settings for di
+    //Sets settings for di 
+    //DI CONFIG IS THE ENTRY POINT FOR INJECTION
     public class DiConfigurations
     {
         public static void ConfigureServices(IServiceCollection services, Settings settings)

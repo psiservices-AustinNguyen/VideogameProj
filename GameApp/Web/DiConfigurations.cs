@@ -5,6 +5,7 @@ namespace Web
 {
     public static class DiConfigurations
     {
+        //configures the services from app onto the web as well
         public static void ConfigureServices(IServiceCollection services, Settings settings)
         {
             App.DiConfigurations.ConfigureServices(services, settings);

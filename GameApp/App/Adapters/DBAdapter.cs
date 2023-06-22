@@ -1,7 +1,6 @@
 ﻿using App.Models;
 using Insight.Database;
 
-
 namespace App.Adapters
 {
     //[DatabaseService(ConnectionStrings.Videogame)]

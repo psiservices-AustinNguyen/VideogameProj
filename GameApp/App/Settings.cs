@@ -5,7 +5,7 @@ namespace App
 {
     public class Settings
     {
-        //Sets up the connection string into an a connection object that can be passsed around
+        //Sets up the connection string into an a connection object that can be passsed around 
 
         //declares a public property named DatabaseConnectionString of type string (written as an auto property). The property has a getter(get;) and a private
         //setter(private set;), which means the value can be retrieved from outside the class but can only be set within the class
