@@ -12,7 +12,7 @@ builder.Services.AddControllers();
 //various configuration sources such as appsettings.json, environment variables, command-line arguments, etc
 var settings = new Settings(builder.Configuration);
 
-//
+//Where dependency is injected. Add all the services and settings such as http requests, and registering transicent
 DiConfigurations.ConfigureServices(builder.Services, settings);
 
 var app = builder.Build();

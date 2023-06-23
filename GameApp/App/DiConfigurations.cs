@@ -7,7 +7,7 @@ using System.Reflection;
 namespace App
 {
     //Sets settings for di 
-    //DI CONFIG IS THE ENTRY POINT FOR INJECTION
+    //DI CONFIG IS WHERE DEPENDENCY IS INJECTED
     public class DiConfigurations
     {
         public static void ConfigureServices(IServiceCollection services, Settings settings)
