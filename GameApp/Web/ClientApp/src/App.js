@@ -1,22 +1,38 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import AppRoutes from './AppRoutes';
-import { Layout } from './components/Layout';
-import './custom.css';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import NavMenu from './components/NavMenu';
+import DevCompanies from './Pages/DevCompanies';
+import HomePage from './Pages/HomePage';
 
-export default class App extends Component {
-  static displayName = App.name;
-
-  render() {
+function App() {
     return (
-      <Layout>
-        <Routes>
-          {AppRoutes.map((route, index) => {
-            const { element, ...rest } = route;
-            return <Route key={index} {...rest} element={element} />;
-          })}
-        </Routes>
-      </Layout>
+        <div>
+            <div>
+                <NavMenu />
+            </div>
+            <div>
+                <ToastContainer
+                    position="top-right"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="light"
+                />
+            </div>
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/DevCompanies" element={<DevCompanies />} />
+            </Routes>
+        </div>
+            
     );
-  }
 }
+
+export default App;
