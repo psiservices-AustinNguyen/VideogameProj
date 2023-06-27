@@ -15,7 +15,7 @@ export const useGetDevCoEndpoint = (devCoId) => {
 
     const { data } = useQuery({
         queryKey: 'Get_DevCompany',
-        queryFn: async () => await axios.get(`https://localhost:7148/api/DevCompany/GetAllDevCo`)
+        queryFn: async () => await axios.get(`https://localhost:7148/api/DevCompany/GetDevCo/${devCoId}`)
     });
 
     return { data };

@@ -13,27 +13,30 @@ function App() {
             <div>
                 <NavMenu />
             </div>
-            <div>
-                <ToastContainer
-                    position="top-right"
-                    autoClose={5000}
-                    hideProgressBar={false}
-                    newestOnTop={false}
-                    closeOnClick
-                    rtl={false}
-                    pauseOnFocusLoss
-                    draggable
-                    pauseOnHover
-                    theme="light"
-                />
+            <div className='m-5'>
+                <div>
+                    <ToastContainer
+                        position="top-right"
+                        autoClose={5000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                        theme="light"
+                    />
+                </div>
+                <Suspense fallback={<div>Loading...</div>}>
+                    <Routes>
+                        <Route path="/" element={<HomePage />} />
+                        <Route path="/DevCompanies" element={<DevCompanies />} />
+                        <Route path="/DevCompany/:devCoId" element={<DevCompany />} />
+                    </Routes>
+                </Suspense>
             </div>
-            <Suspense fallback={<div>Loading...</div>}>
-                <Routes>
-                    <Route path="/" element={<HomePage />} />
-                    <Route path="/DevCompanies" element={<DevCompanies />} />
-                    <Route path="/DevCompany/:devCoId" element={<DevCompany />} />
-                </Routes>
-            </Suspense>
+            
             
         </div>
             
