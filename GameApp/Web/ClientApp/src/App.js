@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import NavMenu from './components/NavMenu';
-import DevCompanies from './Pages/DevCompanies';
-import HomePage from './Pages/HomePage';
+import DevCompany from './pages/DevCompany';
+import DevCompanies from './pages/DevCompanyList';
+import HomePage from './pages/HomePage';
 
 function App() {
     return (
@@ -26,10 +27,14 @@ function App() {
                     theme="light"
                 />
             </div>
-            <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/DevCompanies" element={<DevCompanies />} />
-            </Routes>
+            <Suspense fallback={<div>Loading...</div>}>
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/DevCompanies" element={<DevCompanies />} />
+                    <Route path="/DevCompany/:devCoId" element={<DevCompany />} />
+                </Routes>
+            </Suspense>
+            
         </div>
             
     );
