@@ -1,10 +1,15 @@
 ﻿import React from 'react'
 import { useGetDevCoEndpoint } from '../queries/devCompany';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 const DevCompany = () => {
     const { devCoId } = useParams();
     const { data } = useGetDevCoEndpoint(devCoId);
+    const navigate = useNavigate();
+
+    const handleGoBack = () => {
+        navigate(-1);
+    };
 
     return (
         <div>
@@ -26,6 +31,9 @@ const DevCompany = () => {
             </div>
 
             <div className="mt-5 d-flex justify-content-around">
+                <button className="btn btn-primary" onClick={handleGoBack}>
+                    Back
+                </button>
                 <button className="btn btn-primary">Update</button>
                 <button className="btn btn-danger">Delete</button>
             </div>

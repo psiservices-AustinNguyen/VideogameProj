@@ -3,8 +3,9 @@ import { Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import NavMenu from './components/NavMenu';
+import AddDevCompany from './pages/AddDevCompany';
 import DevCompany from './pages/DevCompany';
-import DevCompanies from './pages/DevCompanyList';
+import DevCompanyList from './pages/DevCompanyList';
 import HomePage from './pages/HomePage';
 
 function App() {
@@ -31,8 +32,9 @@ function App() {
                 <Suspense fallback={<div>Loading...</div>}>
                     <Routes>
                         <Route path="/" element={<HomePage />} />
-                        <Route path="/DevCompanies" element={<DevCompanies />} />
+                        <Route path="/DevCompanyList" element={<DevCompanyList />} />
                         <Route path="/DevCompany/:devCoId" element={<DevCompany />} />
+                        <Route path="/AddDevCompany" element={<AddDevCompany />} />
                     </Routes>
                 </Suspense>
             </div>

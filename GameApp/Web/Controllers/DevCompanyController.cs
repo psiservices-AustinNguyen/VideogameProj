@@ -33,7 +33,7 @@ namespace Web.Controllers
 
         //Get specific Development Company
         [HttpGet("GetDevCo/{id}")]
-        public async Task<ActionResult<List<DevCompany>>> GetDevCo([FromServices] GetDevCompany getDevCompany, [FromRoute] int id)
+        public async Task<ActionResult<DevCompany>> GetDevCo([FromServices] GetDevCompany getDevCompany, [FromRoute] int id)
         {
             _logger.LogInformation("Received GET request");
 
