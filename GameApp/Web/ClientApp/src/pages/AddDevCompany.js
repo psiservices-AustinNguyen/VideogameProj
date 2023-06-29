@@ -59,21 +59,20 @@ const AddDevCompany = () => {
         console.log("SUCCESS")
     }, [navigate]);
 
-    //const onSubmit = (data) => {
-    //    data.preventDefault()
-    //    console.log({ data });
-    //    reset();
-    //}
+    const onSubmit = (data) => {
+        console.log({ data });
+        reset();
+    }
 
     //This calls the post request and sets the data to saveUTDEndpoint,
-    //the post request takes in a callback function and when the request successfully executes, 
+    //the post request takes in a callback function and when the request successfully executes,
     //the callback function executes
-    const { addDevCompany } = useAddDevCompany(onSuccessCallback);
+    const { saveDevCompany } = useAddDevCompany();
     
     return (
         <div>
             <div className='d-flex justify-content-center'>
-                <form className="mt-3 mb-3 " onSubmit={handleSubmit(addDevCompany)}>
+                <form className="mt-3 mb-3 " onSubmit={handleSubmit(onSubmit)}>
                     <div>
                         Name:
                     </div>

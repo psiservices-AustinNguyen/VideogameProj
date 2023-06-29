@@ -4,7 +4,7 @@ import { useQuery, useQueryClient, useMutation } from '@tanstack/react-query';
 export const useGetAllDevCompaniesEndpoint = () => {
     //URL needs to be the same port number as browser port number?
     const { data } = useQuery({
-        queryKey: 'Get_DevCompanyList',
+        //queryKey: 'Get_DevCompanyList',
         queryFn: async () => await axios.get(`https://localhost:7148/api/DevCompany/GetAllDevCo`)
     });
 
@@ -14,7 +14,7 @@ export const useGetAllDevCompaniesEndpoint = () => {
 export const useGetDevCoEndpoint = (devCoId) => {
 
     const { data } = useQuery({
-        queryKey: 'Get_DevCompany',
+        //queryKey: 'Get_DevCompany',
         queryFn: async () => await axios.get(`https://localhost:7148/api/DevCompany/GetDevCo/${devCoId}`)
     });
 
@@ -24,13 +24,13 @@ export const useGetDevCoEndpoint = (devCoId) => {
 export const useAddDevCompany = (onSuccess) => {
 
     // Mutations
-    const { mutate: saveUTDEndpoint } = useMutation({
+    const { mutate: saveDevCompany } = useMutation({
         mutationFn: async (data) => axios.post(`https://localhost:7148/api/DevCompany/add`, data),
         onSuccess: () => {
             onSuccess();
         }
     });
 
-    return { saveUTDEndpoint };
+    return { saveDevCompany };
     
 };
