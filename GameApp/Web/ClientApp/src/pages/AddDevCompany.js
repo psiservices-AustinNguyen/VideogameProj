@@ -43,36 +43,39 @@ const AddDevCompany = () => {
         resolver: yupResolver(validationSchema)
     });
 
-    const onSuccessCallback = useCallback(() => {
-        //reset();
-        //toast.success('Developer Company Added', {
-        //    position: "top-right",
-        //    autoClose: 1500,
-        //    hideProgressBar: false,
-        //    closeOnClick: true,
-        //    pauseOnHover: true,
-        //    draggable: true,
-        //    progress: undefined,
-        //    theme: "light",
-        //});
-        //navigate('/DevCompanyList')
-        console.log("SUCCESS")
-    }, [navigate]);
+    const submitForm = async (data) => {
+        try {
+            await addDevCompany(data);
+            reset();
+            toast.success('Developer Company Added', {
+                position: "top-right",
+                autoClose: 1500,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                theme: "light",
+            });
+            navigate('/DevCompanyList')
 
-    const onSubmit = (data) => {
-        console.log({ data });
-        reset();
+
+        } catch (error) {
+            console.log(error);
+            console.log({ data });
+        }
     }
 
-    //This calls the post request and sets the data to saveUTDEndpoint,
-    //the post request takes in a callback function and when the request successfully executes,
-    //the callback function executes
-    const { saveDevCompany } = useAddDevCompany();
+    //The useAddDevCompany hook is invoked, which returns an object containing the saveDevCompany function.
+    //By using object destructuring syntax { saveDevCompany }, the saveDevCompany function is extracted from the returned object 
+    //and assign it to a constant named saveDevCompany.
+    //Now, the saveDevCompany constant can be used to call the mutation function and trigger the HTTP POST request when needed.
+    const { addDevCompany } = useAddDevCompany();
     
     return (
         <div>
             <div className='d-flex justify-content-center'>
-                <form className="mt-3 mb-3 " onSubmit={handleSubmit(onSubmit)}>
+            {/*Form uses the onSubmit from react, pass in the handleSubmit from useForm yup library and if form is valid, execute submitForm function*/}
+                <form className="mt-3 mb-3 " onSubmit={handleSubmit(submitForm)}>
                     <div>
                         Name:
                     </div>

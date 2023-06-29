@@ -1,22 +1,26 @@
-﻿import React from 'react'
+﻿import React, { useEffect } from 'react'
 import { useGetAllDevCompaniesEndpoint } from '../queries/devCompany';
 import './DevCompanyList.css';
 import { Link, useNavigate } from 'react-router-dom';
 
 const DevCompanies = () => {
-    const { data } = useGetAllDevCompaniesEndpoint();
+    const { data, refetch } = useGetAllDevCompaniesEndpoint();
     const navigate = useNavigate();
 
     const handleClick = () => {
         navigate('/AddDevCompany');
     };
+
+    useEffect(() => {
+        refetch();
+    }, []);
     
     return (
         <div>
             <h1 className='m-2'>Dev Company List</h1>
             <ul className="list-group">
                 {data && data.data.map((company) => (
-                    <Link to={`/DevCompany/${company.devCoId}`} className='text-decoration-none'>
+                    <Link to={`/DevCompany/${company.devCoId}`} className='text-decoration-none' key={company.devCoId}>
                         <li key={company.devCoId} className="list-group-item py-4 bg-info text-white m-4 custom-list-item d-flex justify-content-between ">
                             <h5>{company.devName}</h5>
                             <h5>></h5>

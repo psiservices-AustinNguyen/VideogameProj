@@ -4,7 +4,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import NavMenu from './components/NavMenu';
 import AddDevCompany from './pages/AddDevCompany';
-import DevCompany from './pages/DevCompany';
+import DevCompany from './pages/DevCompanyPage';
 import DevCompanyList from './pages/DevCompanyList';
 import HomePage from './pages/HomePage';
 
