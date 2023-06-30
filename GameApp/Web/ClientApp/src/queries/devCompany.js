@@ -3,6 +3,7 @@ import { useQuery, useQueryClient, useMutation } from '@tanstack/react-query';
 
 export const useGetAllDevCompaniesEndpoint = () => {
     //URL needs to be the same port number as browser port number?
+    //Refetch function is returned, and fetchPolicy is used for the query's first execution
     const { data, refetch } = useQuery({
         queryKey: 'Get_DevCompanyList',
         queryFn: async () => await axios.get(`https://localhost:7148/api/DevCompany/GetAllDevCo`),
@@ -33,12 +34,7 @@ export const useAddDevCompany = () => {
     
 };
 
-export const useDeleteDevCoEndpoint = (devCoId) => {
-
-    //const { data } = useQuery({
-    //    queryKey: 'Delete_DevCompany',
-    //    queryFn: async () => await axios.delete(`https://localhost:7148/api/DevCompany/delete/${devCoId}`)
-    //});
+export const useDeleteDevCoEndpoint = () => {
 
     const { mutate: deleteCompany } = useMutation({
         mutationFn: async (devCoId) => await axios.delete(`https://localhost:7148/api/DevCompany/delete/${devCoId}`),

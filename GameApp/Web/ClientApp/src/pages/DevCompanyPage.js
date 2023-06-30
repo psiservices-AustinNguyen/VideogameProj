@@ -1,4 +1,4 @@
-﻿import React, { useEffect } from 'react'
+﻿import React from 'react'
 import { useGetDevCoEndpoint } from '../queries/devCompany';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useDeleteDevCoEndpoint } from '../queries/devCompany'
@@ -14,8 +14,8 @@ const DevCompany = () => {
         navigate(-1);
     };
 
-    const handleDelete = () => {
-        deleteCompany(devCoId); // Call the mutate function and pass the devCoId
+    const handleDelete = async () => {
+        await deleteCompany(devCoId); // Call the mutate function and pass the devCoId
         toast.success('Developer Company Deleted!', {
             position: "top-right",
             autoClose: 2000,

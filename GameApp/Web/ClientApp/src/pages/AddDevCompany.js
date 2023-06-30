@@ -1,4 +1,4 @@
-﻿import React, { useState, useCallback } from 'react'
+﻿import React from 'react'
 import { toast } from 'react-toastify';
 import * as yup from "yup";
 import { useForm } from 'react-hook-form';
@@ -19,11 +19,10 @@ const validationSchema = yup
     })
     .required();
 
-
-
 const AddDevCompany = () => {
     const navigate = useNavigate();
 
+    //Go back a page
     const handleGoBack = () => {
         navigate(-1);
     };
@@ -43,13 +42,14 @@ const AddDevCompany = () => {
         resolver: yupResolver(validationSchema)
     });
 
+
     const submitForm = async (data) => {
         try {
             await addDevCompany(data);
             reset();
             toast.success('Developer Company Added', {
                 position: "top-right",
-                autoClose: 1500,
+                autoClose: 2000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
@@ -57,18 +57,16 @@ const AddDevCompany = () => {
                 theme: "light",
             });
             navigate('/DevCompanyList')
-
-
         } catch (error) {
             console.log(error);
             console.log({ data });
         }
     }
 
-    //The useAddDevCompany hook is invoked, which returns an object containing the saveDevCompany function.
-    //By using object destructuring syntax { saveDevCompany }, the saveDevCompany function is extracted from the returned object 
-    //and assign it to a constant named saveDevCompany.
-    //Now, the saveDevCompany constant can be used to call the mutation function and trigger the HTTP POST request when needed.
+    //The useAddDevCompany hook is invoked, which returns an object containing the addDevCompany function.
+    //By using object destructuring syntax { addDevCompany }, the addDevCompany function is extracted from the returned object
+    //and assign it to a constant named addDevCompany.
+    //Now, the addDevCompany constant can be used to call the mutation function and trigger the HTTP POST request when needed.
     const { addDevCompany } = useAddDevCompany();
     
     return (

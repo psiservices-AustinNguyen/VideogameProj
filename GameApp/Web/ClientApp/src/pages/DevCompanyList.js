@@ -12,6 +12,7 @@ const DevCompanies = () => {
     };
 
     useEffect(() => {
+        //This is the refetch function from usequery library, it refreshes the query results 
         refetch();
     }, []);
     

@@ -1,6 +1,0 @@
-C:\Users\Austin.Nguyen\Projects\VideogameProj\GameApp\Database\bin\Debug\Database.dacpac
-C:\Users\Austin.Nguyen\Projects\VideogameProj\GameApp\Database\bin\Debug\Database.dll
-C:\Users\Austin.Nguyen\Projects\VideogameProj\GameApp\Database\bin\Debug\Database.pdb
-C:\Users\Austin.Nguyen\Projects\VideogameProj\GameApp\Database\obj\Debug\Database.sqlproj.AssemblyReference.cache
-C:\Users\Austin.Nguyen\Projects\VideogameProj\GameApp\Database\obj\Debug\Database.dll
-C:\Users\Austin.Nguyen\Projects\VideogameProj\GameApp\Database\obj\Debug\Database.pdb
