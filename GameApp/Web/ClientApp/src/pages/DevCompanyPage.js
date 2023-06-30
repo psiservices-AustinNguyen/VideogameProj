@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 
 const DevCompany = () => {
     const { devCoId } = useParams();
-    const { data } = useGetDevCoEndpoint(devCoId);
+    const { data: { data } } = useGetDevCoEndpoint(devCoId);
     const { deleteCompany } = useDeleteDevCoEndpoint(); // Get the delete mutation from the hook
     const navigate = useNavigate();
 
@@ -25,7 +25,7 @@ const DevCompany = () => {
             draggable: true,
             theme: "light",
         });
-        navigate("/DevCompanyList");
+        navigate('/DevCompanyList');
     }
 
     return (
@@ -34,15 +34,15 @@ const DevCompany = () => {
 
             <div className="card">
                 <div className="card-body">
-                    <h5 className="card-title">{data.data.devName}</h5>
+                    <h5 className="card-title">{data.devName}</h5>
                     <p className="card-text">
-                        <strong>Address:</strong> {data.data.devAddress}
+                        <strong>Address:</strong> {data.devAddress}
                     </p>
                     <p className="card-text">
-                        <strong>Founded Date:</strong> {data.data.foundedDate}
+                        <strong>Founded Date:</strong> {data.foundedDate}
                     </p>
                     <p className="card-text">
-                        <strong>Most Popular Game:</strong> {data.data.mostPopularGame}
+                        <strong>Most Popular Game:</strong> {data.mostPopularGame}
                     </p>
                 </div>
             </div>

@@ -11,6 +11,7 @@ const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href');
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
 
+//Still needed suspense in my app?
 const queryClient = new QueryClient({
     defaultOptions: {
         queries: {
@@ -20,6 +21,7 @@ const queryClient = new QueryClient({
 });
 
 root.render(
+    //Surround app in react dom for page routing and query client provider so i can use useQuery throughout the app
     <QueryClientProvider client={queryClient}>
         <BrowserRouter basename={baseUrl}>
             <App />
