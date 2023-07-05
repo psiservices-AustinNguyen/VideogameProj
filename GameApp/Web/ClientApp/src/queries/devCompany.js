@@ -1,7 +1,6 @@
 ﻿import axios from 'axios';
 //useQuery is for getting data and useMutation is for changing data
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { toast } from 'react-toastify';
 
 //useQuery is set to getList and is returned. getList is now an object that contains other objects such as refetching, loading, errors, etc
 export const useGetAllDevCompaniesEndpoint = () => {
@@ -28,14 +27,15 @@ export const useGetDevCoEndpoint = (devCoId) => {
 };
 
 export const useAddDevCompany = () => {
+    const queryClient = useQueryClient();
 
     // Mutation has functions such as mutate that takes in paramters
     const { mutate: addDevCompany } = useMutation({
         mutationFn: async (data) => axios.post(`https://localhost:7148/api/DevCompany/add`, data),
         onSuccess: () => {
             //Invalidate the old query of getting the list and refetches
-            useQueryClient.invalidateQueries('Get_DevCompanyList');
-            useQueryClient.refetchQueries('Get_DevCompanyList');
+            queryClient.invalidateQueries('Get_DevCompanyList');
+            queryClient.refetchQueries('Get_DevCompanyList');
         }
     });
 
@@ -44,15 +44,16 @@ export const useAddDevCompany = () => {
     
 };
 
-export const useDeleteDevCoEndpoint = (navigate) => {
+export const useDeleteDevCoEndpoint = () => {
+    const queryClient = useQueryClient();
 
     const { mutate: deleteCompany } = useMutation({
         mutationFn: async (devCoId) => await axios.delete(`https://localhost:7148/api/DevCompany/delete/${devCoId}`),
         onSuccess: () => {
             //Invalidate the old query of getting the list and refetches
             //Doesn't show updated list when navigating back to DevCompanyList maybe because of async operations?
-            useQueryClient.invalidateQueries('Get_DevCompanyList');
-            useQueryClient.refetchQueries('Get_DevCompanyList');
+            queryClient.invalidateQueries('Get_DevCompanyList');
+            queryClient.refetchQueries('Get_DevCompanyList');
         }
     });
 

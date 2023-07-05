@@ -22,11 +22,6 @@ const validationSchema = yup
 const AddDevCompany = () => {
     const navigate = useNavigate();
 
-    //Go back a page
-    const handleGoBack = () => {
-        navigate(-1);
-    };
-
     //UseForm hook that has functions needed with yup library 
     //The register() method allows registering an element and applying the appropriate validation rules.
     //The handleSubmit() function will receive the form data if validation is successful.
@@ -119,7 +114,7 @@ const AddDevCompany = () => {
                         <p className='text-danger'>{errors.mostPopularGame?.message}</p>
                     </label>
                     <div className='d-flex justify-content-between'>
-                        <button className="btn btn-primary" onClick={handleGoBack}>
+                        <button className="btn btn-primary" onClick={() => {navigate(-1)} }>
                             Back
                         </button>
                         <button className="btn btn-success">

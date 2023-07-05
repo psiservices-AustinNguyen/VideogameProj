@@ -4,9 +4,10 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import NavMenu from './components/NavMenu';
 import AddDevCompany from './pages/AddDevCompany';
-import DevCompany from './pages/DevCompanyPage';
+import DevCompanyPage from './pages/DevCompanyPage';
 import DevCompanyList from './pages/DevCompanyList';
 import HomePage from './pages/HomePage';
+import UpdateDevCompany from './pages/UpdateDevCompany';
 
 function App() {
     return (
@@ -33,8 +34,9 @@ function App() {
                     <Routes>
                         <Route path="/" element={<HomePage />} />
                         <Route path="/DevCompanyList" element={<DevCompanyList />} />
-                        <Route path="/DevCompany/:devCoId" element={<DevCompany />} />
+                        <Route path="/DevCompanyPage/:devCoId" element={<DevCompanyPage />} />
                         <Route path="/AddDevCompany" element={<AddDevCompany />} />
+                        <Route path="/UpdateDevCompany" element={<UpdateDevCompany />} />
                     </Routes>
                 </Suspense>
             </div>

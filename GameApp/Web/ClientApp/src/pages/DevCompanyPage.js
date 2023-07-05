@@ -4,15 +4,11 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useDeleteDevCoEndpoint } from '../queries/devCompany'
 import { toast } from 'react-toastify';
 
-const DevCompany = () => {
+const DevCompanyPage = () => {
     const { devCoId } = useParams();
     const { data: { data } } = useGetDevCoEndpoint(devCoId);
     const { deleteCompany } = useDeleteDevCoEndpoint(); // Get the delete mutation from the hook
     const navigate = useNavigate();
-
-    const handleGoBack = () => {
-        navigate(-1);
-    };
 
     const handleDelete = async () => {
         await deleteCompany(devCoId); // Call the mutate function and pass the devCoId
@@ -48,14 +44,14 @@ const DevCompany = () => {
             </div>
 
             <div className="mt-5 d-flex justify-content-around">
-                <button className="btn btn-primary" onClick={handleGoBack}>
+                <button className="btn btn-primary" onClick={() => navigate(-1)}>
                     Back
                 </button>
-                <button className="btn btn-primary">Update</button>
+                <button className="btn btn-primary" onClick={() => navigate('/UpdateDevCompany')}>Update</button>
                 <button className="btn btn-danger" onClick={handleDelete}>Delete</button>
             </div>
         </div>
     );
 }
 
-export default DevCompany;
+export default DevCompanyPage;
