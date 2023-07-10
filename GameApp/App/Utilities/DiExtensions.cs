@@ -24,7 +24,7 @@ namespace Microsoft.Extensions.DependencyInjection
                     services.AddTransient(type);
                 }
                 //Makes the connection string into a generic type?
-                //For the ConnectionString.cs
+                //
                 else if (type.GetCustomAttribute<DatabaseServiceAttribute>(true) is DatabaseServiceAttribute databaseServiceAttribute)
                 {
                     services.AddTransient(type, (serviceProvider) =>

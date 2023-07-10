@@ -6,6 +6,7 @@ namespace App.UseCases
     [TransientService]
     public class GetAllDevCompanies
     {
+        //injects objects of dependency classes through constructor
         private readonly DBAdapter _DBAdapter;
         public GetAllDevCompanies(DBAdapter dbAdapter)
         {
