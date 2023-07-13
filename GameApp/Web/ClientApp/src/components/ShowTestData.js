@@ -1,7 +1,7 @@
 ﻿import React from 'react'
 
 // the ...props is a spread operator
-// it takes all the props and puts them into this component
+// it takes all the extra named props and puts them into this component
 const ShowTestData = ({name, ...props }) => {
     return (
         <div>
