@@ -119,7 +119,7 @@ namespace App.Adapters
 					AND [QUES-EXTRAPOINTSTYPE] <> 2 --ignore pretest
 					AND SRPT.[SRPT-COL2] = 'BCEN' --@ClientCode is REQUIRED for the report
 					--AND SRPT.[SRPT-COL6] = '7014546'
-					AND SRPT.[SRPT-COL15] BETWEEN '2023-06-27' AND '2023-06-27' --Date range is required;
+					AND SRPT.[SRPT-COL15] BETWEEN '2023-01-27' AND '2023-06-27' --Date range is required;
 					--AND SRPT.[SRPT-COL3] = 'CTRN'
 					--AND not SSCR.[SSCR-PFA] is null --Only filled out PFAGs (P/F/A/G) -- WE WANT ABSENTEES SO WE CAN'T INCLUDE THIS IN WHERE
 					--AND FORM.[FORM-ADMINTYPE] IN ('C7','P7')
@@ -163,7 +163,6 @@ namespace App.Adapters
 		
 		FROM ContentAreasAdapter ca WITH (NOLOCK)
 			INNER JOIN (SELECT distinct [TEST-GUID], ExamId	FROM @tblData) q ON (q.[TEST-GUID] = ca.[TEST-GUID])
-			WHERE 1=1--ca.[BCAT-TITLE] <> '00000000-0000-0000-0000-000000000000'
 			--  AND ca.[QUES-EXTRAPOINTSTYPE] <> 2 --ignore pretest
 
 			GROUP BY 
