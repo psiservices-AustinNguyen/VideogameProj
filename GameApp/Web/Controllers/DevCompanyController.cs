@@ -1,6 +1,7 @@
 ﻿using App.Models;
 using App.UseCases;
 using Microsoft.AspNetCore.Mvc;
+using System.Reflection;
 
 namespace Web.Controllers
 {
@@ -98,6 +99,22 @@ namespace Web.Controllers
             catch (Exception err)
             {
                 _logger.LogError(err.Message);
+                return StatusCode(500, err.Message);
+            }
+        }
+
+        [HttpGet("bcenResults")]
+        
+        public async Task<ActionResult<BcenModel>> GetAllBCENResults([FromServices] GetBCENResults BCENResults)
+        {
+            _logger.LogInformation("Recieved GET request");
+
+            try
+            {
+                return Ok(await BCENResults.Execute());
+            }
+            catch (Exception err)
+            {
                 return StatusCode(500, err.Message);
             }
         }

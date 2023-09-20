@@ -11,6 +11,7 @@ namespace App
         //setter(private set;), which means the value can be retrieved from outside the class but can only be set within the class
         //Makes it a readonly
         public string DatabaseConnectionString { get; private set; }
+        public string LXRdataConnectionString { get; private set; }
 
         //This is used to set up the sql connection throughout the program
         //Parameter is all the configurations from builder
@@ -23,6 +24,8 @@ namespace App
             //DatabaseConnectionString = configuration.GetConnectionString(ConnectionStrings.Videogame);
 
             DatabaseConnectionString = configuration.GetConnectionString("VideogameDbConnection");
+            DatabaseConnectionString = configuration.GetConnectionString("ResultsServicePlaygroundConnection");
+            
         }
         
     }
